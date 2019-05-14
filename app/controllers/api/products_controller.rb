@@ -6,7 +6,7 @@ class Api::ProductsController < ApplicationController
   end
 
   def show
-    @product = Product.find(params[:id].to_i)
+    @product = Product.find(params[:id])
     render "show.json.jbuilder"
   end
 
@@ -25,11 +25,11 @@ class Api::ProductsController < ApplicationController
 
   def update
 
-    @product = Product.find(params[:id].to_i)
+    @product = Product.find(params[:id])
     
     @product.name = params[:name] || @product.name
     @product.description = params[:description] || @product.description
-    @product.price = params[:price].to_i || @product.price
+    @product.price = params[:price] || @product.price
     @product.image_url = params[:image_url] || @product.image_url
 
     @product.save
@@ -40,7 +40,7 @@ class Api::ProductsController < ApplicationController
 
   def destroy
 
-    @product = Product.find(params[:id].to_i)
+    @product = Product.find(params[:id])
 
     @product.destroy
 
