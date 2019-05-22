@@ -2,16 +2,19 @@ Supplier.create!([
   {name: "Google", email: "store@google.com", phone_number: "555-222-1111"},
   {name: "Amazon", email: "store@amazon.com", phone_number: "555-222-2222"}
 ])
+
 Product.create!([
-  {name: "Pixel 2XL", price: "900.0", description: "2nd generation XL phone made by Google", in_stock: true, supplier_id: 1},
   {name: "Pixel 3XL", price: "899.0", description: "3rd generation XL phone made by Google", in_stock: true, supplier_id: 1},
   {name: "Pixel 3a", price: "399.0", description: "3rd generation budget version phone made by Google", in_stock: true, supplier_id: 1},
   {name: "Pixel XL", price: "249.99", description: "First generation XL Pixel phone made by google", in_stock: true, supplier_id: 1},
   {name: "Pixel Buds", price: "159.99", description: "Wireless ear buds made for Pixel phones made by Google", in_stock: true, supplier_id: 1},
   {name: "Pixel Slate", price: "799.0", description: "Google Tablet", in_stock: true, supplier_id: 1},
   {name: "Pixelbook", price: "999.0", description: "Chrome OS laptop made by Google", in_stock: true, supplier_id: 1},
-  {name: "Google Nest Hub", price: "129.0", description: "Smart Display with Google Assistant", in_stock: true, supplier_id: 1}
+  {name: "Google Nest Hub", price: "129.0", description: "Smart Display with Google Assistant", in_stock: true, supplier_id: 1},
+  {name: "Pixel 2XL", price: "499.0", description: "2nd generation XL phone made by Google", in_stock: true, supplier_id: 1},
+  {name: "test", price: "1010.0", description: "nope", in_stock: true, supplier_id: 2}
 ])
+
 Image.create!([
   {url: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcScdgBef17ZuhxgfvuXISI8rnTbqaj--dtRgzDQkAqlFjX9Db85DQM&usqp=CAc", product_id: 1},
   {url: "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcTF9CzFhkLuKL_dyXVnXdx29Ni7ztiDk5d2QuMuAkTTRoI_e9JDpw&usqp=CAc", product_id: 2},
@@ -24,8 +27,25 @@ Image.create!([
   {url: "https://images-na.ssl-images-amazon.com/images/I/61QMVdY5j3L._SL1500_.jpg", product_id: 1}
 ])
 
-
 User.create!([
-  {name: "bk", email: "bk@gmail.com", password_digest: "$2a$10$/VUZt7oeobZiPOqkxSgwX.u/AQbxjECblqimtPxOOdZTBq6sXQgGq"},
-  {name: "ak", email: "ak@gmail.com", password_digest: "$2a$10$FIQ7qobFTydypFT2bnaIeuQsik5SWnwQaaheqGp3QOzJKCbbx8qAK"}
+  {name: "ak", email: "ak@gmail.com", password_digest: "$2a$10$FIQ7qobFTydypFT2bnaIeuQsik5SWnwQaaheqGp3QOzJKCbbx8qAK", admin: false},
+  {name: "bk", email: "bk@gmail.com", password_digest: "$2a$10$/VUZt7oeobZiPOqkxSgwX.u/AQbxjECblqimtPxOOdZTBq6sXQgGq", admin: true},
+  {name: "nobody", email: "nobody@gmail.com", password_digest: "$2a$10$pXRtWQNoTOzQ4mjX.sVme.HdU16/RoZjknXLREQamhQU0I3PeiUUG", admin: false}
 ])
+
+Order.create!([
+  {quantity: 10, product_id: 5, subtotal: "1599.9", tax: "163.99", total: "1763.89", user_id: 2},
+  {quantity: 10, product_id: 5, subtotal: "1599.9", tax: "163.99", total: "1763.89", user_id: 2},
+  {quantity: 10, product_id: 5, subtotal: "1599.9", tax: "163.99", total: "1763.89", user_id: 2},
+  {quantity: 3, product_id: 1, subtotal: "2700.0", tax: "276.75", total: "2976.75", user_id: 1},
+  {quantity: 3, product_id: 1, subtotal: "2700.0", tax: "276.75", total: "2976.75", user_id: 1},
+  {quantity: 3, product_id: 1, subtotal: "2700.0", tax: "276.75", total: "2976.75", user_id: 1},
+  {quantity: 3, product_id: 1, subtotal: "2700.0", tax: "276.75", total: "2976.75", user_id: 1},
+  {quantity: 3, product_id: 1, subtotal: "2700.0", tax: "276.75", total: "2976.75", user_id: 1},
+  {quantity: 3, product_id: 1, subtotal: "2700.0", tax: "276.75", total: "2976.75", user_id: 1},
+  {quantity: 9, product_id: 12, subtotal: "1161.0", tax: "119.0", total: "1280.0", user_id: 1},
+  {quantity: 3, product_id: 22, subtotal: "3030.0", tax: "310.58", total: "3340.58", user_id: 3}
+])
+
+
+
