@@ -1,6 +1,6 @@
 class Api::ProductsController < ApplicationController
 
-  before_action :authenticate_user
+  before_action :authenticate_admin, except: [:index, :show]
 
   def index
 
@@ -30,8 +30,8 @@ class Api::ProductsController < ApplicationController
     @product = Product.new(
       name: params[:name],
       description: params[:description],
-      price: params[:price]
-
+      price: params[:price],
+      supplier_id: params[:supplier_id]
       )
     if @product.save
       render "show.json.jbuilder"
@@ -47,6 +47,7 @@ class Api::ProductsController < ApplicationController
     @product.name = params[:name] || @product.name
     @product.description = params[:description] || @product.description
     @product.price = params[:price] || @product.price
+    @product.supplier_id = params[:supplier_id] || @product.supplier_id
 
     if @product.save
       render 'show.json.jbuilder'
@@ -58,10 +59,9 @@ class Api::ProductsController < ApplicationController
   def destroy
 
     @product = Product.find(params[:id])
-
     @product.destroy
-
-    render json:[product: "Annihilated..."]
+    render 'destroy.json.jbuilder'
+    
     
   end
   

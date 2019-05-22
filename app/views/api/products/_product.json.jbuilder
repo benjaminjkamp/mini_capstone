@@ -8,4 +8,4 @@ json.in_stock? product.in_stock
 json.tax number_to_currency(product.tax)
 json.total number_to_currency(product.total)
 json.supplier product.supplier
-json.current_user current_user.name
+json.current_user current_user
