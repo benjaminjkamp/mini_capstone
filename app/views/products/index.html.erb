@@ -1,0 +1,10 @@
+<h1>Products</h1>
+
+<% @products.each do |product| %>
+  <h2><a href="/products/<%=product.id%>"><%= product.name %></a></h2>
+  <h4>Price: <%= product.price %></h4>
+  <h4>Description: <%= product.description %></h4>
+  <h6>Supplier Name: <%= product.supplier.name %></h6>
+  <h6>Supplier Email: <%= product.supplier.email %></h6>
+  <h6>Supplier Phone Number: <%= product.supplier.phone_number %></h6>
+<% end %>

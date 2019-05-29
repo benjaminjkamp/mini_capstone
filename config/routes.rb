@@ -34,5 +34,16 @@ Rails.application.routes.draw do
 
   end
 
+  #Front End Routes
+  get "/products" => "products#index"
+  get "/products/new" => "products#new"
+  post "/products" => "products#create"
+  get "/products/:id" => "products#show"
+
+  get "/images/new" => "images#new"
+  post "/images" => "images#create"
+
+
+
 
 end
