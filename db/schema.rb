@@ -81,6 +81,4 @@ ActiveRecord::Schema.define(version: 2019_05_24_180843) do
     t.boolean "admin", default: false
   end
 
-  add_foreign_key "orders", "users", name: "orders_user_id_fkey"
-  add_foreign_key "products", "suppliers", name: "products_supplier_id_fkey"
 end
